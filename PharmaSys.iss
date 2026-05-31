@@ -32,7 +32,7 @@ ArchitecturesInstallIn64BitMode=x64compatible
 DisableProgramGroupPage=yes
 ; Remove the following line to run in administrative install mode (install for all users).
 PrivilegesRequired=lowest
-OutputDir=C:\Users\leona\Documents\PharmaSys Setup
+OutputDir=C:\Users\leona\Documents\PharmaSys_V7.0\PharmaSys Setup
 OutputBaseFilename=PharmaSys_Setup_v7.0
 SetupIconFile=Icon_PharmaSys256x256.ico
 SolidCompression=yes
@@ -45,7 +45,7 @@ Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortugue
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\leona\Documents\CRIADOR DROGARIA\dist\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\leona\Documents\PharmaSys_V7.0\dist\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

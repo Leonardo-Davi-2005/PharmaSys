@@ -375,7 +375,7 @@ def mostrar_info():
         "📱 Telefone: 35 98425-0721\n"
         "✉️ Email: leonardodavioliveiraguiar@gmail.com\n"
         "🛠️ Ferramentas usadas: Python, Tkinter, PIL (Pillow)\n"
-        "🆚 Versão do sistema: 6.0\n\n"
+        "🆚 Versão do sistema:7.0\n\n"
         "📌 Suporte:\n"
         "Qualquer dúvida ou problema, entre em contato via telefone ou email.\n"
     )
