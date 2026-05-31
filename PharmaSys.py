@@ -490,8 +490,8 @@ except:
 janela = tk.Tk()
 janela.title("PharmaSys")
 janela.iconbitmap(resource_path("Icon_PharmaSys256x256.ico"))
-largura_janela = 600
-altura_janela = 700
+largura_janela = 700
+altura_janela = 800
 janela.update_idletasks()
 largura_tela = janela.winfo_screenwidth()
 altura_tela = janela.winfo_screenheight()
@@ -660,7 +660,7 @@ pending_label = tk.Label(
 pending_label.pack(fill="both", expand=True, padx=5, pady=5)
 
 btn_voltar_menu_colar = tk.Button(colar_arquivos_frame, text="Voltar ao Menu", command=lambda: voltar_menu(colar_arquivos_frame))
-btn_voltar_menu_colar.pack(pady=0)
+btn_voltar_menu_colar.pack(pady=5)
 estilo_botao_moderno(btn_voltar_menu_colar)
 
 # ---------- Rodapé ----------  
