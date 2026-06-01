@@ -3,7 +3,7 @@
 ; Non-commercial use only
 
 #define MyAppName "PharmaSys"
-#define MyAppVersion "7.0"
+#define MyAppVersion "7.1"
 #define MyAppPublisher "AppPublisher=Leonardo Aguiar - PharmaSys"
 #define MyAppURL "https://github.com/Leonardo-Davi-2005"
 #define MyAppExeName "PharmaSys.exe"
@@ -32,8 +32,8 @@ ArchitecturesInstallIn64BitMode=x64compatible
 DisableProgramGroupPage=yes
 ; Remove the following line to run in administrative install mode (install for all users).
 PrivilegesRequired=lowest
-OutputDir=C:\Users\leona\Documents\PharmaSys_V7.0\PharmaSys Setup
-OutputBaseFilename=PharmaSys_Setup_v7.0
+OutputDir=C:\Users\leona\Documents\PharmaSys_V7.1\PharmaSys Setup
+OutputBaseFilename=PharmaSys_Setup_v7.1
 SetupIconFile=Icon_PharmaSys256x256.ico
 SolidCompression=yes
 WizardStyle=modern dynamic
@@ -45,7 +45,7 @@ Name: "brazilianportuguese"; MessagesFile: "compiler:Languages\BrazilianPortugue
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "C:\Users\leona\Documents\PharmaSys_V7.0\dist\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Users\leona\Documents\PharmaSys_V7.1\dist\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]

@@ -56,7 +56,7 @@ def estilo_botao_moderno(btn):
         font=("Segoe UI", 10, "bold"),
         relief="flat",
         bd=0,
-        padx=10,
+        padx=50,
         pady=6,
         cursor="arrow"
     )
@@ -371,21 +371,41 @@ def centralizar_colar(event):
 # ---------- Função "Informações do Sistema" ----------
 def mostrar_info():
     info_texto = (
-        "💻 Criado por: Leonardo Davi\n"
-        "📱 Telefone: 35 98425-0721\n"
-        "✉️ Email: leonardodavioliveiraguiar@gmail.com\n"
-        "🛠️ Ferramentas usadas: Python, Tkinter, PIL (Pillow)\n"
-        "🆚 Versão do sistema:7.0\n\n"
-        "📌 Suporte:\n"
-        "Qualquer dúvida ou problema, entre em contato via telefone ou email.\n"
-    )
+    "💊 PharmaSys\n"
+    "Sistema de Organização de Documentos Farmacêuticos\n\n"
 
+    "👨‍💻 Desenvolvedor\n"
+    "Leonardo Aguiar\n\n"
+
+    "📞 Contato\n"
+    "Telefone: (35) 98425-0721\n"
+    "E-mail: leonardodavioliveiraguiar@gmail.com\n\n"
+
+    "🛠️ Tecnologias Utilizadas\n"
+    "• Python\n"
+    "• Tkinter\n"
+    "• Pillow (PIL)\n\n"
+
+    "📦 Informações do Sistema\n"
+    "Versão: 7.1\n"
+    "Ano: 2024–2026\n\n"
+
+    "📌 Objetivo\n"
+    "Auxiliar na organização de receitas, notas fiscais e documentos "
+    "relacionados à Farmácia Popular, proporcionando mais agilidade, "
+    "padronização e segurança no gerenciamento dos arquivos.\n\n"
+
+    "🆘 Suporte\n"
+    "Em caso de dúvidas, sugestões ou problemas, entre em contato pelos "
+    "canais informados acima."
+)
+    
     janela_info = tk.Toplevel()
     janela_info.title("Informações do Sistema")
     janela_info.configure(bg=BG_PRINCIPAL)
 
-    largura_janela = 450
-    altura_janela = 300
+    largura_janela = 650
+    altura_janela = 550
     largura_tela = janela_info.winfo_screenwidth()
     altura_tela = janela_info.winfo_screenheight()
     pos_x = (largura_tela - largura_janela) // 2
@@ -393,8 +413,28 @@ def mostrar_info():
     janela_info.geometry(f"{largura_janela}x{altura_janela}+{pos_x}+{pos_y}")
     janela_info.resizable(False, False)
 
-    tk.Label(janela_info, text=info_texto, bg=BG_PRINCIPAL, fg=TEXTO, justify="left", anchor="nw", wraplength=400, font=("Arial", 10)).pack(
-        fill="both", expand=True, padx=10, pady=10
+        # Frame principal com scroll
+    frame_principal = tk.Frame(janela_info, bg=BG_PRINCIPAL)
+    frame_principal.pack(fill="both", expand=True, padx=10, pady=10)
+
+    canvas = tk.Canvas(frame_principal, bg=BG_PRINCIPAL, highlightthickness=0)
+    scrollbar = tk.Scrollbar(frame_principal, orient="vertical", command=canvas.yview)
+    scroll_frame = tk.Frame(canvas, bg=BG_PRINCIPAL)
+
+    scroll_frame.bind(
+        "<Configure>",
+        lambda e: canvas.configure(scrollregion=canvas.bbox("all"))
+    )
+
+    canvas.create_window((0,0), window=scroll_frame, anchor="nw")
+    canvas.configure(yscrollcommand=scrollbar.set)
+
+    canvas.pack(side="left", fill="both", expand=True)
+    scrollbar.pack(side="right", fill="y")
+
+    # Label do texto
+    tk.Label(scroll_frame, text=info_texto, bg=BG_PRINCIPAL, fg=TEXTO, justify="left", anchor="nw", wraplength=600).pack(
+        fill="both", expand=True, padx=5, pady=5
     )
 
     btn_ok = tk.Button(janela_info, text="OK", command=janela_info.destroy)
@@ -406,32 +446,50 @@ def mostrar_info():
 
 def mostrar_como_usar():
     texto_uso = (
-        "🚀 PharmaSys\n"
-        "Sistema inteligente para organização de arquivos farmacêuticos\n\n"
+    "🚀 PharmaSys\n"
+    "Sistema para organização e gerenciamento de receitas, notas fiscais e documentos da Farmácia Popular.\n\n"
 
-        "🗂️ CRIAR PASTAS\n"
-        "Crie várias pastas de uma vez:\n"
-        "• Selecione o diretório\n"
-        "• Defina a quantidade\n"
-        "• Nomeie e confirme\n"
-        "✔ Ideal para agilizar organização em lote\n\n"
+    "📁 CRIAR PASTAS\n"
+    "Permite criar rapidamente a estrutura de pastas dos pacientes.\n\n"
+    "Como utilizar:\n"
+    "• Clique em 'Selecionar Diretório'\n"
+    "• Escolha o local onde as pastas serão criadas\n"
+    "• Informe a quantidade de pastas desejada\n"
+    "• Clique em 'Atualizar Campos'\n"
+    "• Digite os nomes dos pacientes\n"
+    "• Clique em 'Criar Pastas'\n\n"
+    "✔ Ideal para cadastrar diversos pacientes de uma só vez.\n\n"
 
-        "📥 COLAR ARQUIVOS\n"
-        "Mova arquivos para as pastas corretas:\n"
-        "• Escolha o diretório base\n"
-        "• Selecione Receitas ou Notas\n"
-        "• Visualize antes de mover\n"
-        "• Clique na pasta desejada\n"
-        "✔ Evita erros e perda de arquivos\n\n"
+    "📄 COLAR ARQUIVOS\n"
+    "Organiza receitas e notas fiscais nas respectivas pastas dos pacientes.\n\n"
+    "Como utilizar:\n"
+    "• Selecione o diretório onde estão as pastas dos pacientes\n"
+    "• Utilize o campo de pesquisa para localizar rapidamente uma pasta\n"
+    "• Selecione os arquivos desejados\n"
+    "• Escolha entre 'Colar Receitas' ou 'Colar Notas'\n"
+    "• Clique na pasta correspondente ao paciente\n\n"
+    "✔ Evita erros de arquivamento e agiliza o processo diário.\n\n"
 
-        "🔙 NAVEGAÇÃO\n"
-        "Use 'Voltar ao Menu' para retornar a qualquer momento\n\n"
+    "↩️ DESFAZER AÇÃO\n"
+    "Caso uma movimentação seja realizada incorretamente, utilize o botão "
+    "'Desfazer Ação' para retornar os arquivos ao local anterior.\n\n"
 
-        "⚠️ IMPORTANTE\n"
-        "• Revise antes de confirmar ações\n"
-        "• Nomes duplicados são ajustados automaticamente\n"
-        "• Use sempre o diretório correto\n"
-    )
+    "🔍 PESQUISA DE PASTAS\n"
+    "Utilize o campo de busca para localizar pacientes rapidamente em grandes listas.\n\n"
+
+    "⌨️ ATALHOS\n"
+    "• ESC → Retorna ao menu anterior\n"
+    "• Mouse Wheel → Rola listas e áreas com conteúdo extenso\n\n"
+
+    "⚠️ RECOMENDAÇÕES\n"
+    "• Verifique sempre se o paciente selecionado está correto\n"
+    "• Confirme os arquivos antes de movê-los\n"
+    "• Utilize apenas diretórios autorizados pela farmácia\n"
+    "• Mantenha backups periódicos dos documentos\n\n"
+
+    "💊 PharmaSys v7.1\n"
+    "Desenvolvido para otimizar a organização documental da Farmácia Popular."
+)
 
     # Criar janela
     janela_uso = tk.Toplevel()
@@ -480,26 +538,23 @@ def mostrar_como_usar():
     janela_uso.grab_set()
 
 # ---------- Janela ----------
-import ctypes
-
-try:
-    ctypes.windll.shcore.SetProcessDpiAwareness(1)
-except:
-    pass
-
 janela = tk.Tk()
 janela.title("PharmaSys")
 janela.iconbitmap(resource_path("Icon_PharmaSys256x256.ico"))
-largura_janela = 700
-altura_janela = 800
-janela.update_idletasks()
+
 largura_tela = janela.winfo_screenwidth()
 altura_tela = janela.winfo_screenheight()
+
+largura_janela = min(700, largura_tela - 40)
+altura_janela = min(800, altura_tela - 80)
+
 pos_x = (largura_tela // 2) - (largura_janela // 2)
 pos_y = (altura_tela // 2) - (altura_janela // 2)
+
 janela.geometry(f"{largura_janela}x{altura_janela}+{pos_x}+{pos_y}")
 janela.configure(bg=BG_PRINCIPAL)
-janela.resizable(False, False)
+
+janela.resizable(True, True)
 
 # ---------- Menu ----------
 menu_frame = tk.Frame(janela, bg=BG_PRINCIPAL)
@@ -664,9 +719,21 @@ btn_voltar_menu_colar.pack(pady=5)
 estilo_botao_moderno(btn_voltar_menu_colar)
 
 # ---------- Rodapé ----------  
-tk.Label(janela, text="Desenvolvido por Leonardo Aguiar • 2024–2026 • Versão 7.0",
+tk.Label(janela, text="Desenvolvido por Leonardo Aguiar • 2024–2026 • Versão 7.1",
          bg=BG_PRINCIPAL, fg=TEXTO, font=("Arial", 8)).pack(side="bottom", fill="x", pady=10)
 
 # ---------- Iniciar com menu ----------
 menu_frame.pack(fill="both", expand=True)
+
+def voltar_esc(event=None):
+    if criar_pastas_frame.winfo_ismapped():
+        voltar_menu(criar_pastas_frame)
+    elif colar_arquivos_frame.winfo_ismapped():
+        voltar_menu(colar_arquivos_frame)
+
+janela.bind("<Escape>", voltar_esc)
+
 janela.mainloop()
+
+
+#python -m PyInstaller --onefile --windowed --icon=Icon_PharmaSys256x256.ico --add-data "Icon_PharmaSys256x256.ico;." --add-data "Image_PharmaSys.png;." PharmaSys.py
